@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodawanie autora</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="dodaj">
+        <div class="autory">
+
+            <form action="/authors-books" method="post">
+                <h1>Add a book</h1>
+                <label for="authorName">Author's name:</label><br>
+                <input type="text" name="authorName" required><br>
+                <label for="bookTitle">Book title:</label><br>
+                <input type="text" name="bookTitle" required><br><br>
+                <input type="submit" value="add"></input>
+            </form>
+            <div class="icons">
+                <span class="swagger"><img src="/icons/swagger.png" alt="Swagger Icon"> <label> Swagger documentation is
+                        available on: <i><a href="/api-docs">'/api-docs/'</a> </i></label></span>
+                <span class="swagger"><img src="/icons/graphql.png" alt="Swagger Icon"> <label> Graphql documentation is
+                        available on: <i><a href="/graphql">'/graphql/'</a> </i></label></span>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="tabela">
+
+        <h1>Book authors list API</h1>
+        <div class="table-container">
+            <table id="authorsTable">
+                <thead>
+                    <tr>
+                        <th>Author's name</th>
+                        <th>Book title</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% authors.forEach(author=> { %>
+                        <tr>
+                            <td>
+                                <%= author.authorName %>
+                            </td>
+                            <td>
+                                <%= author.bookTitle %>
+                            </td>
+                            <td>
+                                <div class="test">
+                                    <form action="/delete-book" method="post">
+                                        <input type="hidden" name="bookId" value="<%= author._id %>">
+                                        <input type="submit" value="delete">
+                                    </form>
+
+                                    <form action="/edit-book/<%= author._id %>" method="get">
+                                        <input type="hidden" name="bookId">
+                                        <input type="submit" value="edit">
+                                    </form>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        Created by: Chełmecki Tomasz & Hoffman Michał
+    </footer>
+</body>
+
+</html>
