@@ -1,6 +1,6 @@
 <h1>Book authors API</h1>
 
-<p>The simple API that allows you to create, edit, delete and display data about book authors. <br> You can easily check this API by downloading and using Swagger or Graphql. <br>
+<p>The simple API that allows you to create, edit, delete and display data about book authors. <br> You can easily check this API by downloading this project and using Swagger or Graphql. <br>
 The project was broken down into the MVC (Model-View-Controller) architectural pattern.</p>
 
 <h2>Created with:</h2>
